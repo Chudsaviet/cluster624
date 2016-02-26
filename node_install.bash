@@ -11,6 +11,9 @@ ETH1_CONFIG="/etc/sysconfig/network-scripts/ifcfg-eth1"
 sed -i "s/=dhcp/=static/g" $ETH1_CONFIG
 echo "IPADDR=192.168.39.$N" >> $ETH1_CONFIG
 echo "NETMASK=255.255.255.0" >> $ETH1_CONFIG
+echo "DNS1=8.8.4.4" >> $ETH1_CONFIG
+echo "DNS2=77.88.8.1" >> $ETH1_CONFIG
+
 
 # ============ install other things
 yum -y install wget
