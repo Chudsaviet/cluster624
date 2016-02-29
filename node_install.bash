@@ -68,6 +68,9 @@ echo 'server quickstart.cloudera iburst prefer' >> /etc/ntp.conf
 chkconfig ntpd on 
 service ntpd start
 
+# ============ Sync time every minute due to heavy clock skew in VirtualBox guests
+echo "* * * * * ntpdate -u quickstart.cloudera"| crontab -
+
 # ============  performance improving
 echo "echo 'never' > /sys/kernel/mm/redhat_transparent_hugepage/defrag" >> /etc/rc.local
 echo 'sysctl -w vm.swappiness=0' >> /etc/rc.local
